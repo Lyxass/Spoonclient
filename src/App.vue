@@ -1,32 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header></Header>
+    <div id="content">
+      <Filters></Filters>
+      <div id="searchNResult">
+        <Search></Search>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+import Header from "@/components/Header";
+import Search from "@/components/Search";
+import Filters from "@/components/Filters";
+export default {
+  components: {Search, Header, Filters}
+}
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-#nav {
-  padding: 30px;
+#content{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
+
+#searchNResult{
+  width: 80%;
+}
+
+
 </style>
