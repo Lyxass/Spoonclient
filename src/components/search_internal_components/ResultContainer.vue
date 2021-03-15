@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ResultCard from "@/components/ResultCard";
+import ResultCard from "@/components/search_internal_components/ResultCard";
 
 export default {
   name: "ResultContainer",
