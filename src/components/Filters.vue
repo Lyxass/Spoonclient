@@ -1,15 +1,20 @@
 <template>
-  <div></div>
+  <div id="filtersContainer">
+    <Intolerances></Intolerances>
+  </div>
+
 </template>
 
 <script>
+import Intolerances from "@/components/filter/Intolerances";
 export default {
-  name: "Filters"
+  name: "Filters",
+  components: {Intolerances}
 }
 </script>
 
 <style scoped lang="scss">
-  div{
-    width: 20%;
-  }
+#filtersContainer{
+  width: 20%;
+}
 </style>

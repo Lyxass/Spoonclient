@@ -1,9 +1,10 @@
 <template>
 
   <div>
-    <md-autocomplete v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete">
+    <md-autocomplete v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">
       <label>Enter something here</label>
     </md-autocomplete>
+    <md-button class="md-primary" @click="onSelect"> Search</md-button>
   </div>
 
 </template>
@@ -19,15 +20,16 @@ export default {
   },
   methods:
       {
-        getAutoComplete(searchTerm) {
+        getAutoComplete() {
           this.res = new Promise(resolve => {
             window.setTimeout(() => {
-              console.log(searchTerm)
               resolve()
             }, 1000)
           })
+        },
+        onSelect(){
+          this.$emit("submit",this.input)
         }
-
       }
 }
 </script>
@@ -35,5 +37,8 @@ export default {
 <style scoped lang="scss">
   div{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 </style>
