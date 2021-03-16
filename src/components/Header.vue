@@ -18,7 +18,7 @@ export default {
 <style scoped lang="scss">
 
   #nav {
-    height: 7%;
+    height: 50px;
     background: linear-gradient(0.25turn,#ff9800, #f44336);
     width: 100%;
     display: flex;
