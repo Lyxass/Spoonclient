@@ -2,7 +2,7 @@
   <div>
     <div id="home">
       <p id="title">SpoonClient</p>
-      <p id="sub-title">Le seul site à cesser de fonctionner après 100 requêtes !</p>
+      <p id="sub-title">The only site to stop working after about 100 requests!</p>
     </div>
   </div>
 </template>

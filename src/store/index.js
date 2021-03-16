@@ -8,7 +8,8 @@ export default new Vuex.Store({
     api: "1b4f50bd8bec4a209e854fcfdd201c82",
     lastResult: {},
     filters: {
-      intolerances: []
+      intolerances: [],
+      cuisines: []
     }
   },
   getters:{

@@ -19,7 +19,6 @@ import Filters from "@/components/search_internal_components/Filters";
 import ResultContainer from "@/components/search_internal_components/ResultContainer";
 import {receipeQuery} from "@/model/Api"
 
-
 export default {
   components: {ResultContainer, Search, Filters},
   data() {
@@ -33,16 +32,26 @@ export default {
   methods:
       {
         searchFromApi(input) {
-          let query = "query=" + input + "&number=10";
+          this.isLoading = true;
+          /*let query = "query=" + input + "&number=10";
           if (this.$store.state.filters.intolerances.length > 0) {
             query += "&intolerances=" + this.$store.state.filters.intolerances.toString();
-          }
-          receipeQuery(this.$store.state.api, query).then((res) => {
+
+             v-if="!res instanceof Object"
+          }*/
+          receipeQuery(this.$store.state.api, input, this.$store.state.filters).then((res) => {
             console.log("res", res);
             this.res = res;
+            this.isLoading = false
           })
-        }
-      }
+              .catch((res) => {
+                this.res = res
+                console.log(!(this.res instanceof Object), res)
+                this.isLoading = false
+              })
+        },
+      },
+
 }
 </script>
 
@@ -65,7 +74,6 @@ export default {
   left: 47%;
   margin: 24px;
 }
-
 
 
 #content {

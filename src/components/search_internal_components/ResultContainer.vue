@@ -3,7 +3,11 @@
     <div v-if="this.result.results !== undefined && this.result.results.length > 0" id="resultContainer" class="d-flex justify-content-center flex-wrap ">
       <ResultCard v-for="res in this.result.results" :key="res.id" v-bind:detail="res"></ResultCard>
     </div>
-    <div v-else id="soSad">
+    <div  v-if="!(this.result instanceof Object)" class="error">
+      <p> {{result}}</p>gghghgh
+
+    </div>
+    <div v-else class="error">
       <p> Sorry, we did not find anything matching your criteria</p>
     </div>
   </div>
@@ -26,7 +30,7 @@ export default {
   height: 100%;
 }
 
-#soSad{
+.error{
   display: flex;
   justify-content: center;
   font-size: 200%;
