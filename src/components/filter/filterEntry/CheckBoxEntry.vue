@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "FilterEntry",
+  name: "CheckBoxEntry",
   props: ["name"],
   data() {
     return {
