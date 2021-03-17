@@ -33,7 +33,7 @@ export default {
 }
 
 #rView{
-  height: 93%;
+  height: 95%;
   width: 100%;
 }
 </style>

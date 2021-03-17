@@ -29,7 +29,7 @@ export default {
 #title {
   font-size: 140px;
   color:white;
-  height: 10%;
+  height: 100px;
 }
 #sub-title{
   font-size: 30px;

@@ -1,5 +1,6 @@
 const RECIPE_BASE_URL = "https://api.spoonacular.com/recipes/complexSearch"
 const RECIPE_DETAIL_URL = "https://api.spoonacular.com/recipes/{id}/information"
+const INGREDIENT_URL = "https://api.spoonacular.com/food/ingredients/{id}/information"
 
 
 export async function receipeQuery(apiKey, input, filters) {
@@ -18,9 +19,15 @@ export async function receipeQuery(apiKey, input, filters) {
     return _query(url)
 }
 
-export async function queryById(apiKey,id){
+export async function queryReceipeById(apiKey,id){
     let i = RECIPE_DETAIL_URL.indexOf("{id}")
     let url = RECIPE_DETAIL_URL.substring(0,i)+id+RECIPE_DETAIL_URL.substring(i+4)+ "?" + "apiKey=" + apiKey
+    return _query(url)
+}
+
+export async function queryIngredientById(apiKey,id){
+    let i = INGREDIENT_URL.indexOf("{id}")
+    let url = INGREDIENT_URL.substring(0,i)+id+INGREDIENT_URL.substring(i+4)+ "?" + "apiKey=" + apiKey
     return _query(url)
 }
 

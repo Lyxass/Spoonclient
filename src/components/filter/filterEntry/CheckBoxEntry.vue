@@ -2,7 +2,7 @@
   <li>
     <div id="item" @click="update">
       <input type="checkbox" >
-      <p>{{ name }}</p>
+      <p id="label">{{ name }}</p>
     </div>
   </li>
 </template>
@@ -27,6 +27,9 @@ export default {
 
 <style scoped lang="scss">
 
+#item > p#label:hover{
+  color: #E8710C !important;
+}
 
 #item{
   display: flex;

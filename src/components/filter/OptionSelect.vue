@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
-    <div class="card-header" id="headingOne">
+  <div class="card ">
+    <div class="card-header orangeNoGradient noDecoration" id="headingOne">
       <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left toChange" type="button" data-toggle="collapse"
-                :data-target="rd" aria-expanded="true" :aria-controls="rd">
+        <button class="btn btn-link btn-block text-left toChange" id="bt" type="button" data-toggle="collapse"
+                :data-target="rd" aria-expanded="true" :aria-controls="rd" >
           {{ name }}
         </button>
       </h2>
@@ -65,7 +65,36 @@ button {
   text-decoration: none;
 }
 
+.orangeNoGradient {
+  color: white !important;
+  background-color: #ff9800;
+}
+
+.orange {
+  color: white;
+  background: linear-gradient(0.25turn, #ff9800, #f44336);
+}
+
+.white {
+  color: #ff9800;
+}
+
+.noDecoration {
+  text-decoration: none !important;
+}
+
 ul {
   list-style: none;
 }
+
+button{
+  text-decoration: none !important;
+  color: white;
+}
+
+#bt:hover{
+  color: #ff9800 !important;
+  background-color: white;
+}
+
 </style>

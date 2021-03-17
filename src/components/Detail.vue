@@ -1,26 +1,60 @@
 <template>
   <div>
     <div id="mainDetailContainer">
-      <img :src="details.image" :alt="details.title" id="detailImage">
+      <div id="imageContainer">
+        <img :src="details.image" :alt="details.title" id="detailImage">
+      </div>
       <div id="shortDetails">
-        <h1>{{ details.title }}</h1>
+        <h1 id="title">{{ details.title }}</h1>
         <p id="id">#{{ id }}</p>
         <div v-html="details.summary" id="summary"></div>
-        <HealthBar :percentage="details.healthScore"> </HealthBar>
       </div>
+    </div>
 
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item orangeNoGradient" role="presentation">
+        <a class="nav-link active noDecoration orangeNoGradient" id="diet-tab" data-toggle="tab" href="#diet" role="tab"
+           aria-controls="diet" aria-selected="true">Diets</a>
+      </li>
+      <li class="nav-item white" role="presentation">
+        <a class="nav-link noDecoration orangeNoGradient" id="others-tab" data-toggle="tab" href="#others" role="tab"
+           aria-controls="others" aria-selected="false">Others</a>
+      </li>
+      <li class="nav-item white" role="presentation">
+        <a class="nav-link noDecoration orangeNoGradient" id="ingredients-tab" data-toggle="tab" href="#ingredients"
+           role="tab" aria-controls="ingredients" aria-selected="false">Ingredients</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="diet" role="tabpanel" aria-labelledby="home-tab">
+        <DetailDiet :details="details"></DetailDiet>
+      </div>
+      <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+        <ul class="list-group list-group-flush">
+          <DataBar :percentage="details.healthScore" :invert="false" title="Health Score:" class="orange"></DataBar>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+        <ul class="list-group list-group-flush">
+          <Ingredients :ingredients="details.extendedIngredients"></Ingredients>
+        </ul>
+      </div>
     </div>
   </div>
 
 </template>
 
 <script>
-//import {queryById} from "@/model/Api";
+import {queryReceipeById} from "@/model/Api";
 
-import HealthBar from "@/components/detailInternalComponents/HealthBar";
+import DataBar from "@/components/detailInternalComponents/DataBar";
+import DetailDiet from "@/components/detailInternalComponents/DetailDiet";
+import Ingredients from "@/components/detailInternalComponents/Ingredients";
+
 export default {
   name: "Detail",
-  components: {HealthBar},
+  components: {Ingredients, DetailDiet, DataBar},
   props: ["id"],
   data() {
     return {
@@ -29,8 +63,10 @@ export default {
   },
   beforeMount() {
     console.log("id", this.id)
-    //this.details = queryById(this.$store.state.api,this.id);
-    this.details = {
+    queryReceipeById(this.$store.state.api,this.id).then(res =>{
+      this.details = res;
+    });
+    /*this.details = {
       "vegetarian": false,
       "vegan": false,
       "glutenFree": false,
@@ -337,7 +373,7 @@ export default {
       }],
       "originalId": null,
       "spoonacularSourceUrl": "https://spoonacular.com/pasta-with-tuna-654959"
-    }
+    }*/
     console.log("Details", this.details)
   }
 }
@@ -349,15 +385,71 @@ export default {
   width: 100%;
   justify-content: space-between;
   flex-direction: row;
+  height: 40%;
 }
 
 #detailImage {
-  width: 35%;
+  width: auto;
+  height: 100%;
 }
 
 #shortDetails {
   width: 65%;
+  margin-right: 1%;
+  margin-top: 10px;
 }
 
+.orangeNoGradient {
+  color: white !important;
+  background-color: #ff9800;
+}
+
+.orange {
+  color: white;
+  background: linear-gradient(0.25turn, #ff9800, #f44336);
+}
+
+.white {
+  color: #ff9800;
+}
+
+.active {
+  color: #ff9800 !important;
+}
+
+.noDecoration {
+  text-decoration: none !important;
+}
+
+#title {
+  background-color: #ff9800;
+  color: white;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#id {
+  color: #ff9800;
+}
+
+#summary {
+  color: white;
+  background-color: #ff9800;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+#imageContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myTab{
+  margin-top: 1%;
+}
 
 </style>
