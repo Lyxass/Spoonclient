@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Receipe from "@/components/Receipe";
 import Home from "@/components/Home";
 import Detail from "@/components/Detail";
+import Error from "@/components/Error";
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +21,12 @@ const routes = [
     path: '/detail/:id',
     component: Detail,
     props: true
+  },
+  {
+    path: "*",
+    component: Error,
   }
+
 
 ]
 const router = new VueRouter({

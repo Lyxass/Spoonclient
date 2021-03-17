@@ -1,8 +1,10 @@
 <template>
   <li>
     <div id="item" @click="update">
-      <input type="checkbox" >
-      <p id="label">{{ name }}</p>
+      <div @click="update">
+        <input type="checkbox" @change="update" v-model="isChecked" >
+      </div>
+      <p id="label" @click="update">{{ name }}</p>
     </div>
   </li>
 </template>
@@ -18,6 +20,7 @@ export default {
   },
   methods: {
     update() {
+      console.log("clicked",this.isChecked)
       this.isChecked = !this.isChecked;
       this.$emit("changed", {name: this.name, isChecked: this.isChecked})
     }
@@ -27,16 +30,25 @@ export default {
 
 <style scoped lang="scss">
 
-#item > p#label:hover{
-  color: #E8710C !important;
+p#label{
+  color: #ff9800 ;
+  margin: 0 0 0 10px;
+  padding: 0;
 }
 
 #item{
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 1%;
+  border-radius: 10px;
 }
-p{
-  margin: 0 0 0 1%;
+
+#item:hover{
+  p{
+    color: white !important;
+  }
+  background-color: #ff9800;
 }
+
 </style>

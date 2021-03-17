@@ -1,6 +1,7 @@
 const RECIPE_BASE_URL = "https://api.spoonacular.com/recipes/complexSearch"
 const RECIPE_DETAIL_URL = "https://api.spoonacular.com/recipes/{id}/information"
 const INGREDIENT_URL = "https://api.spoonacular.com/food/ingredients/{id}/information"
+const RECIPE_AUTO_COMPLETE = "https://api.spoonacular.com/recipes/autocomplete?number=10&query="
 
 
 export async function receipeQuery(apiKey, input, filters) {
@@ -8,7 +9,7 @@ export async function receipeQuery(apiKey, input, filters) {
         _reject("Invalid Input : Illegal Character (&, =)")
     }
     //check for &
-    let query = "query=" + input;
+    let query = "query=" + input + "&number=20";
     Object.keys(filters).forEach((element) => {
         if (filters[element].length > 0 && filters[element].indexOf("None") < 0 && filters[element] !== "") {
             query += "&" + element + "=" + filters[element]
@@ -30,6 +31,12 @@ export async function queryIngredientById(apiKey,id){
     let url = INGREDIENT_URL.substring(0,i)+id+INGREDIENT_URL.substring(i+4)+ "?" + "apiKey=" + apiKey
     return _query(url)
 }
+
+export async function recipeAutoComplete(str,apiKey){
+    let url = RECIPE_AUTO_COMPLETE+str+"&apiKey="+apiKey;
+    return _query(url);
+    }
+
 
 function _query(url){
     return new Promise((resolve, reject) => {

@@ -11,9 +11,9 @@
 
     <div :id="rd" class="collapse show toChange2 " aria-labelledby="headingOne" :data-parent="accordionId">
       <div class="card-body">
-        <label for="exampleFormControlSelect1">Select the cuisine you want</label>
-        <select class="form-control" id="exampleFormControlSelect1"  @change="onChange">
-          <option v-for="i in options" :key="i">{{ i }}</option>
+        <label for="exampleFormControlSelect1" class="white">Select the cuisine you want</label>
+        <select class="form-control orangeNoGradient" id="exampleFormControlSelect1"  @change="onChange">
+          <option v-for="i in options" :key="i" class="orangeNoGradient">{{ i }}</option>
         </select>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-1 ml-1" style="width: 18rem;" id="ingredientContainer">
-      <img :src="image" class="card-img-top" id="img" alt="...">
+    <img :src="image" class="card-img-top" id="img" alt="...">
     <div class="card-body">
       <h3 class="card-title">{{name}}</h3>
     </div>

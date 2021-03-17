@@ -1,5 +1,6 @@
 <template>
   <div id="container">
+
     <div v-if="this.ingredients !== undefined && this.ingredients.length > 0" id="resultContainer" class="d-flex justify-content-center flex-wrap ">
       <Ingredient v-for="ingredient in this.ingredients" :key="ingredient.id" v-bind:detail="ingredient"></Ingredient>
     </div>
@@ -14,7 +15,7 @@ import Ingredient from "@/components/detailInternalComponents/Ingredient";
 export default {
   name: "Ingredients",
   components: {Ingredient},
-  props: ["ingredients"]
+  props: ["ingredients"],
 }
 </script>
 
