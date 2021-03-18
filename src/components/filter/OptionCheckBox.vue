@@ -101,4 +101,8 @@ button{
   color: #ff9800 !important;
   background-color: white;
 }
+
+#headingOne{
+  border: none;
+}
 </style>
