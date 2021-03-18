@@ -29,6 +29,10 @@
           <a class="nav-link noDecoration orangeNoGradient" id="ingredients-tab" data-toggle="tab" href="#ingredients"
              role="tab" aria-controls="ingredients" aria-selected="false">Ingredients</a>
         </li>
+        <li class="nav-item white" role="presentation">
+          <a class="nav-link noDecoration orangeNoGradient" id="wine-tab" data-toggle="tab" href="#wine"
+             role="tab" aria-controls="wine" aria-selected="false">Wine</a>
+        </li>
       </ul>
 
       <div class="tab-content" id="myTabContent">
@@ -45,6 +49,11 @@
             <Ingredients :ingredients="details.extendedIngredients"></Ingredients>
           </ul>
         </div>
+        <div class="tab-pane fade" id="wine" role="tabpanel" aria-labelledby="wine-tab">
+          <ul class="list-group list-group-flush">
+            <Wines :wines="details.winePairing.productMatches" :noWineText="details.winePairing.pairingText"></Wines>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -57,10 +66,11 @@ import {queryReceipeById} from "@/model/Api";
 import DataBar from "@/components/detailInternalComponents/DataBar";
 import DetailDiet from "@/components/detailInternalComponents/DetailDiet";
 import Ingredients from "@/components/detailInternalComponents/Ingredients";
+import Wines from "@/components/detailInternalComponents/Wines";
 
 export default {
   name: "Detail",
-  components: {Ingredients, DetailDiet, DataBar},
+  components: {Ingredients, DetailDiet, DataBar,Wines},
   props: ["id"],
   data() {
     return {

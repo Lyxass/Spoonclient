@@ -4,9 +4,9 @@
       <OptionCheckBox :options="intolerances" name="Intolerances"
                       :bind-selected="this.$store.state.filters.intolerances" randomId="accord"
                       rd="intolerances"></OptionCheckBox>
-      <OptionSelect :options="cuisines" name="Cuisines" bind-selected="cuisines"
+      <OptionCheckBox :options="cuisines" name="Cuisines" bind-selected="cuisines"
                     randomId="accord" rd="cuisines">
-      </OptionSelect>
+      </OptionCheckBox>
       <OptionCheckBox :options="cuisines" name="Exclude Cuisine(s)"
                       :bind-selected="this.$store.state.filters.excludeCuisine" randomId="accord"
                       rd="excludeCuisine"></OptionCheckBox>
@@ -17,11 +17,10 @@
 
 <script>
 import OptionCheckBox from "@/components/filter/OptionCheckBox";
-import OptionSelect from "@/components/filter/OptionSelect";
 
 export default {
   name: "Filters",
-  components: {OptionSelect, OptionCheckBox},
+  components: {OptionCheckBox},
   data() {
     return {
       intolerances: ["Dairy", "Egg", "Gluten", "Grain", "Peanut", "Seafood", "Sesame", "Shellfish", "Soy", "Sulfite",
