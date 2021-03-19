@@ -1,8 +1,10 @@
 <template>
   <div>
     <div id="home">
-      <p id="title">SpoonClient</p>
-      <p id="sub-title">The only site to stop working after about 100 requests!</p>
+      <div id="titleContainer">
+        <p id="title">SpoonClient</p>
+        <p id="sub-title">The only website which will stop working after about 100 requests!</p>
+      </div>
     </div>
   </div>
 </template>
@@ -17,22 +19,41 @@ export default {
 #home {
   width: 100%;
   height: 100%;
-  background: linear-gradient(0.25turn, #ff9800, #f44336);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-image: url("../../public/images/background.jpg");
+  background-repeat: round;
   //background-image: url("../../public/traiteur.jpg");
   //background-repeat: round;
 }
 
 #title {
-  font-size: 140px;
   color:white;
-  height: 100px;
+  font-size: 100px;
+  height: 0;
+  width: 100%;
+  text-align: center;
 }
 #sub-title{
-  font-size: 30px;
+  margin-top: 70px;
   color:white;
+  width: 100%;
+  text-align: center;
+  height: 0;
+  font-size: 30px;
 }
+
+#titleContainer{
+  border: 10px white solid;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 900px;
+  height: 250px;
+}
+
 </style>

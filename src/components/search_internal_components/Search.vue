@@ -1,7 +1,7 @@
 <template>
 
-  <div>
-    <md-autocomplete v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">
+  <div id="searchContainer">
+    <md-autocomplete id="searchBar" v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">
       <label>Enter something here</label>
     </md-autocomplete>
     <md-button class="md-primary" id="search" @click="onSelect"> Search</md-button>
@@ -43,23 +43,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  #searchContainer{
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
   div{
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 1%;
+    background-color: white;
   }
 
   #search{
-    color: #ff9800;
-    background-color: white;
+    color: black;
     border: 0;
     border-radius: 10%;
   }
 
   #search:hover{
     color: white;
-    background-color: #ff9800;
+    background-color: black;
+  }
+
+  #searchBar{
+    color: white;
+  }
+
+  #searchContainer{
+
   }
 </style>

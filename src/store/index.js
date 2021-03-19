@@ -10,7 +10,8 @@ export default new Vuex.Store({
     filters: {
       intolerances: [],
       cuisines: [],
-      excludeCuisine:[]
+      excludeCuisine:[],
+      diet:[]
     }
   },
   getters:{

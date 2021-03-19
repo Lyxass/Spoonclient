@@ -3,10 +3,10 @@
     <div id="spinnerContainer" v-if="isLoading">
       <md-progress-spinner id="spinner" md-mode="indeterminate"></md-progress-spinner>
     </div>
+    <Search @submit="searchFromApi"></Search>
+    <Filters></Filters>
     <div id="content">
-      <Filters></Filters>
-      <div id="searchNResult">
-        <Search @submit="searchFromApi"></Search>
+      <div id="result">
         <ResultContainer v-bind:result="res" :number-answers="numberAnswers" :number-per-page="resultPerPage"
                          :current-search="currentSearch" @onPageMustChange="loadPage"></ResultContainer>
       </div>
@@ -25,59 +25,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      /*res: {
-        "results": [{
-          "id": 654959,
-          "title": "Pasta With Tuna",
-          "image": "https://spoonacular.com/recipeImages/654959-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 511728,
-          "title": "Pasta Margherita",
-          "image": "https://spoonacular.com/recipeImages/511728-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654812,
-          "title": "Pasta and Seafood",
-          "image": "https://spoonacular.com/recipeImages/654812-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654857,
-          "title": "Pasta On The Border",
-          "image": "https://spoonacular.com/recipeImages/654857-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654883,
-          "title": "Pasta Vegetable Soup",
-          "image": "https://spoonacular.com/recipeImages/654883-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654928,
-          "title": "Pasta With Italian Sausage",
-          "image": "https://spoonacular.com/recipeImages/654928-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654926,
-          "title": "Pasta With Gorgonzola Sauce",
-          "image": "https://spoonacular.com/recipeImages/654926-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654944,
-          "title": "Pasta With Salmon Cream Sauce",
-          "image": "https://spoonacular.com/recipeImages/654944-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654905,
-          "title": "Pasta With Chickpeas and Kale",
-          "image": "https://spoonacular.com/recipeImages/654905-312x231.jpg",
-          "imageType": "jpg"
-        }, {
-          "id": 654901,
-          "title": "Pasta With Chicken and Broccoli",
-          "image": "https://spoonacular.com/recipeImages/654901-312x231.jpg",
-          "imageType": "jpg"
-        }], "offset": 0, "number": 10, "totalResults": 210
-      },*/
       res: {},
       numberAnswers: 0,
       resultPerPage: 20,
@@ -155,7 +102,7 @@ export default {
 
 }
 
-#searchNResult {
+#result {
   width: 88%;
   height: 100%;
   display: flex;

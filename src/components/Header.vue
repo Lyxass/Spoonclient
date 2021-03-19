@@ -3,7 +3,8 @@
     <h1 id="title"> SpoonClient </h1>
     <div id="routeurContainer">
       <router-link to="/">Home</router-link>
-      <router-link to="/receipe">Receipe</router-link>
+      <router-link to="/recipe">Recipe</router-link>
+      <router-link to="/random">Random</router-link>
     </div>
   </div>
 </template>
@@ -18,17 +19,18 @@ export default {
 <style scoped lang="scss">
 
   #nav {
-    height: 50px;
-    background: linear-gradient(0.25turn,#ff9800, #f44336);
+    height: 70px;
     width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
+    background-color: white;
   }
 
   #title{
-    color: white;
+    color: black;
     margin-left: 1%;
+    //border: 2px white solid;
   }
 
   #routeurContainer{
@@ -36,14 +38,15 @@ export default {
     width: 6%;
     a{
       text-decoration: none;
-      color: white;
+      color: black;
       padding: 10%;
       border-radius: 2px;
 
     }
     a:hover{
-      background-color: white;
-      color: #ff9800;
+      background-color: black;
+      color: white;
+      border: 2px white;
     }
   }
 

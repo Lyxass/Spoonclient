@@ -2,6 +2,7 @@ const RECIPE_BASE_URL = "https://api.spoonacular.com/recipes/complexSearch"
 const RECIPE_DETAIL_URL = "https://api.spoonacular.com/recipes/{id}/information"
 const INGREDIENT_URL = "https://api.spoonacular.com/food/ingredients/{id}/information"
 const RECIPE_AUTO_COMPLETE = "https://api.spoonacular.com/recipes/autocomplete?number=10&query="
+const RECIPE_RANDOM_URL = "https://api.spoonacular.com/recipes/random?number=1"
 
 
 export async function receipeQuery(apiKey, input, filters,offset) {
@@ -23,6 +24,11 @@ export async function receipeQuery(apiKey, input, filters,offset) {
     })
 
     let url = RECIPE_BASE_URL + "?" + query + "&" + "apiKey=" + apiKey;
+    return queryApi(url)
+}
+
+export async function getRandomReceipe(apiKey){
+    let url = RECIPE_RANDOM_URL + "&apiKey=" + apiKey
     return queryApi(url)
 }
 
