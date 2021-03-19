@@ -29,8 +29,11 @@ export default {
 
   #title{
     color: black;
-    margin-left: 1%;
-    //border: 2px white solid;
+    margin: 0 0 0 1%;
+    border: 2px black solid;
+    font-size: 100%;
+    padding: 10px;
+
   }
 
   #routeurContainer{
