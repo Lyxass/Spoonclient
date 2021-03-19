@@ -9,16 +9,23 @@
     <div v-else class="error">
       <p> Sorry, we did not find anything matching your criteria</p>
     </div>
+    <PagesSelector v-if="currentSearch !== ''" :number-per-page="numberPerPage" :number-result="numberAnswers" @onPageMustChange="reEmit"></PagesSelector>
+
   </div>
 </template>
 
 <script>
 import ResultCard from "@/components/search_internal_components/ResultCard";
-
+import PagesSelector from "@/components/search_internal_components/PagesSelector";
 export default {
   name: "ResultContainer",
-  components: {ResultCard},
-  props: ["result"],
+  components: {PagesSelector, ResultCard},
+  props: ["result", "numberAnswers", "numberPerPage", "currentSearch"],
+  methods: {
+    reEmit(nb){
+      this.$emit("onPageMustChange", nb);
+    }
+  }
 }
 </script>
 

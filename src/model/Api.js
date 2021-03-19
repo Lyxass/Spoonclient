@@ -26,6 +26,11 @@ export async function receipeQuery(apiKey, input, filters,offset) {
     return queryApi(url)
 }
 
+export async function loadReceipePage(url,offset){
+    url = replaceOffsetInUrl(url,offset)
+    return queryApi(url)
+}
+
 
 export async function queryReceipeById(apiKey,id){
     let i = RECIPE_DETAIL_URL.indexOf("{id}")
@@ -51,13 +56,10 @@ function queryApi(url){
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log("data", data)
                 data.currentSearch = url;
-                console.log("replaced Offset", replaceOffsetInUrl(url,4321))
                 resolve(data)
             })
             .catch(res => {
-                console.log("res", res)
                 reject(res);
             })
     })
@@ -70,16 +72,14 @@ function _reject(reason){
 }
 
 export function replaceOffsetInUrl(url,offset){
-    console.log("offset = ", offset)
     let offsetIndex = url.indexOf("offset=");
     if(offsetIndex < 0){
         return ""
     }
     let size = 7;
-    let endSize = url.substring(offsetIndex+size).length
-    let endIndex = url.length- endSize-url.substring(offsetIndex+size).indexOf("&")
-    console.log("endindex",endIndex)
-    return url.substring(0,offsetIndex+size) + offset + url.substring(endIndex)
+    let startOfURL = url.substring(offsetIndex+size)
+    let endOfURL = startOfURL.substring(startOfURL.indexOf("&"))
+    return url.substring(0,offsetIndex+size) + offset + endOfURL
 }
 
 //https://api.spoonacular.com/recipes/complexSearch?query=pasta&intolerances=Dairy,Peanut&number=10&apiKey=1b4f50bd8bec4a209e854fcfdd201c82

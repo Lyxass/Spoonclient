@@ -7,7 +7,8 @@
       <Filters></Filters>
       <div id="searchNResult">
         <Search @submit="searchFromApi"></Search>
-        <ResultContainer v-bind:result="res"></ResultContainer>
+        <ResultContainer v-bind:result="res" :number-answers="numberAnswers" :number-per-page="resultPerPage"
+                         :current-search="currentSearch" @onPageMustChange="loadPage"></ResultContainer>
       </div>
     </div>
   </div>
@@ -17,17 +18,69 @@
 import Search from "@/components/search_internal_components/Search";
 import Filters from "@/components/search_internal_components/Filters";
 import ResultContainer from "@/components/search_internal_components/ResultContainer";
-import {receipeQuery} from "@/model/Api"
+import {receipeQuery, loadReceipePage} from "@/model/Api"
 
 export default {
   components: {ResultContainer, Search, Filters},
   data() {
     return {
       isLoading: false,
-      res: {"results":[{"id":654959,"title":"Pasta With Tuna","image":"https://spoonacular.com/recipeImages/654959-312x231.jpg","imageType":"jpg"},{"id":511728,"title":"Pasta Margherita","image":"https://spoonacular.com/recipeImages/511728-312x231.jpg","imageType":"jpg"},{"id":654812,"title":"Pasta and Seafood","image":"https://spoonacular.com/recipeImages/654812-312x231.jpg","imageType":"jpg"},{"id":654857,"title":"Pasta On The Border","image":"https://spoonacular.com/recipeImages/654857-312x231.jpg","imageType":"jpg"},{"id":654883,"title":"Pasta Vegetable Soup","image":"https://spoonacular.com/recipeImages/654883-312x231.jpg","imageType":"jpg"},{"id":654928,"title":"Pasta With Italian Sausage","image":"https://spoonacular.com/recipeImages/654928-312x231.jpg","imageType":"jpg"},{"id":654926,"title":"Pasta With Gorgonzola Sauce","image":"https://spoonacular.com/recipeImages/654926-312x231.jpg","imageType":"jpg"},{"id":654944,"title":"Pasta With Salmon Cream Sauce","image":"https://spoonacular.com/recipeImages/654944-312x231.jpg","imageType":"jpg"},{"id":654905,"title":"Pasta With Chickpeas and Kale","image":"https://spoonacular.com/recipeImages/654905-312x231.jpg","imageType":"jpg"},{"id":654901,"title":"Pasta With Chicken and Broccoli","image":"https://spoonacular.com/recipeImages/654901-312x231.jpg","imageType":"jpg"}],"offset":0,"number":10,"totalResults":210},
-      //res: {}
+      /*res: {
+        "results": [{
+          "id": 654959,
+          "title": "Pasta With Tuna",
+          "image": "https://spoonacular.com/recipeImages/654959-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 511728,
+          "title": "Pasta Margherita",
+          "image": "https://spoonacular.com/recipeImages/511728-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654812,
+          "title": "Pasta and Seafood",
+          "image": "https://spoonacular.com/recipeImages/654812-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654857,
+          "title": "Pasta On The Border",
+          "image": "https://spoonacular.com/recipeImages/654857-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654883,
+          "title": "Pasta Vegetable Soup",
+          "image": "https://spoonacular.com/recipeImages/654883-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654928,
+          "title": "Pasta With Italian Sausage",
+          "image": "https://spoonacular.com/recipeImages/654928-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654926,
+          "title": "Pasta With Gorgonzola Sauce",
+          "image": "https://spoonacular.com/recipeImages/654926-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654944,
+          "title": "Pasta With Salmon Cream Sauce",
+          "image": "https://spoonacular.com/recipeImages/654944-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654905,
+          "title": "Pasta With Chickpeas and Kale",
+          "image": "https://spoonacular.com/recipeImages/654905-312x231.jpg",
+          "imageType": "jpg"
+        }, {
+          "id": 654901,
+          "title": "Pasta With Chicken and Broccoli",
+          "image": "https://spoonacular.com/recipeImages/654901-312x231.jpg",
+          "imageType": "jpg"
+        }], "offset": 0, "number": 10, "totalResults": 210
+      },*/
+      res: {},
       numberAnswers: 0,
-      currentPage: 1,
+      resultPerPage: 20,
       currentSearch: "",
 
     }
@@ -37,27 +90,36 @@ export default {
       {
         searchFromApi(input) {
           this.isLoading = true;
-          /*let query = "query=" + input + "&number=10";
-          if (this.$store.state.filters.intolerances.length > 0) {
-            query += "&intolerances=" + this.$store.state.filters.intolerances.toString();
-
-             v-if="!res instanceof Object"
-          }*/
-
-
           receipeQuery(this.$store.state.api, input, this.$store.state.filters).then((res) => {
             console.log("res", res);
             this.res = res;
             this.isLoading = false
+            this.currentSearch = res.currentSearch;
+            this.numberAnswers = res.totalResults;
           })
               .catch((res) => {
                 this.res = res
-                this.currentSearch = res.currentSearch;
-                this.numberAnswers = res.number;
-                console.log(!(this.res instanceof Object), res)
                 this.isLoading = false
+                this.currentSearch = "";
+
               })
         },
+        loadPage(nb) {
+          if (this.currentSearch !== "") {
+            loadReceipePage(this.currentSearch, (nb - 1) * this.resultPerPage).then(res => {
+              this.res = res;
+              this.isLoading = false
+              this.currentSearch = res.currentSearch;
+              this.numberAnswers = res.totalResults;
+            })
+                .catch((res) => {
+                  this.res = res
+                  this.isLoading = false
+                  this.currentSearch = "";
+
+                })
+          }
+        }
       },
 
 }
@@ -94,8 +156,12 @@ export default {
 }
 
 #searchNResult {
-  width: 75%;
+  width: 88%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 0 0 1%;
 }
 
 
