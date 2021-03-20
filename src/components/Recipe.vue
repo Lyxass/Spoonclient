@@ -6,10 +6,10 @@
     <Search @submit="searchFromApi"></Search>
     <Filters></Filters>
     <div id="content">
-      <div id="result">
+      <!--<div id="result">-->
         <ResultContainer v-bind:result="res" :number-answers="numberAnswers" :number-per-page="resultPerPage"
                          :current-search="currentSearch" @onPageMustChange="loadPage"></ResultContainer>
-      </div>
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -94,12 +94,13 @@ export default {
 
 
 #content {
-  width: 100%;
+  width: 90%;
   display: flex;
-  flex-direction: row;
-  height: 100%;
-  justify-content: space-between;
-
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #result {

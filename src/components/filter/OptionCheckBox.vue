@@ -1,12 +1,13 @@
 <template>
-  <div class="tab-pane fade show active" id="" role="tabpanel" aria-labelledby="pills-home-tab">
-    <ul v-for="i in options" :key="i">
-      <CheckBoxEntry :name="i" @changed="onUpdate"></CheckBoxEntry>
-    </ul>
+  <div class="tab-pane fade show filterContainer" :id="id" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="md-layout md-gutter" id="checkBoxContainer">
+      <ul class="list-group list-group-horizontal" id="ulItems">
+        <CheckBoxEntry v-for="i in options" :key="i" :name="i" @changed="onUpdate"></CheckBoxEntry>
+      </ul>
+    </div>
   </div>
 
 </template>
-
 <script>
 
 import CheckBoxEntry from "@/components/filter/filterEntry/CheckBoxEntry";
@@ -55,26 +56,32 @@ export default {
 
 <style scoped lang="scss">
 
+#ulItems{
+  width: 100%;
+}
+
+.filterContainer{
+  width: 100%;
+  height: 20%;
+  background-color: white;
+}
+
+#checkBoxContainer{
+  background-color: white;
+  border: 5px black solid;
+  width: 99%;
+  height: 100%;
+  left: 2%;
+  position: relative;
+}
+
 button {
   text-decoration: none;
 }
 
 ul {
   list-style: none;
-}
-
-.orangeNoGradient {
-  color: white !important;
-  background-color: #ff9800;
-}
-
-.orange {
-  color: white;
-  background: linear-gradient(0.25turn, #ff9800, #f44336);
-}
-
-.white {
-  color: #ff9800;
+  flex-wrap: wrap;
 }
 
 .noDecoration {
@@ -88,8 +95,9 @@ button {
 }
 
 #bt:hover {
-  color: #ff9800 !important;
+  color: black !important;
   background-color: white;
+  border: 2px black solid;
 }
 
 #headingOne {

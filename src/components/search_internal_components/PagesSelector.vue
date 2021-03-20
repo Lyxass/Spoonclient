@@ -1,11 +1,11 @@
 <template>
   <nav aria-label="..." id="navPage">
     <ul class="pagination" id="ulPage">
-      <li class="page-item " :class="{'disable' : prevBool}" @click="onPrev">
+      <li class="page-item pageItemCustom" :class="{'disable' : prevBool}" @click="onPrev">
         <a class="page-link" href="#" tabindex="-1">Previous</a>
       </li>
       <Page v-for="i in this.numberOfPages" :number="i" :key="i" :selected="selected[i-1]" @click="onPageClick"></Page>
-      <li class="page-item" @click="onNext" :class="{'disable' : nextBool}">
+      <li class="page-item " @click="onNext" :class="{'disable' : nextBool}">
         <a class="page-link" href="#">Next</a>
       </li>
     </ul>
@@ -77,10 +77,39 @@ export default {
 
 <style scoped lang="scss">
 
+li{
+  color: black !important;
+  background-color: white !important;
+  border: none;
+}
+
+a{
+  color: black !important;
+  background-color: white !important;
+  border: none;
+}
+
+.li:hover{
+  color: white !important;
+  background-color: black !important;
+
+  a{
+    color: white !important;
+    background-color: black !important;
+  }
+}
+
+
 #navPage {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.pageItemCustom{
+  color: black !important;
+  text-decoration: none !important;
+
 }
 
 

@@ -23,17 +23,22 @@ export default {
 <style scoped lang="scss">
 
 #cardContainer{
-  background: linear-gradient(0.25turn, #ff9800, #f44336);
+
 }
 
 #receipeTitle{
-  color: white;
+  color: black;
+  background-color: white;
+  border: 2px black solid;
+  text-align: center;
 }
 
 #bt{
-  color: white !important;
-  background-color: rgba(0,0,0,0);
-  border: 0;
+  color: black;
+  background-color: white;
+  border: 2px black solid;
+  text-align: center;
+  padding: 1% 0;
 }
 
 

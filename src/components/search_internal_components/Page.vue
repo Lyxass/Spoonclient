@@ -1,5 +1,5 @@
 <template>
-  <li class="page-item" :class="{'active' : selected}" @click="onCLick">
+  <li class="page-item text-dark" :class="{'active' : selected}" @click="onCLick">
     <a class="page-link"  href="#">
       {{number}}
     </a>
@@ -19,6 +19,28 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+li{
+  color: black !important;
+  background-color: white !important;
+  border: none;
+}
+
+a{
+  color: black !important;
+  background-color: white !important;
+  border: none;
+}
+
+.active{
+  color: white !important;
+  background-color: black !important;
+
+  a{
+    color: white !important;
+    background-color: black !important;
+  }
+}
 
 </style>

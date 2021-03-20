@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="list-group-item" id="itemLi" @click="update">
     <div id="item" @click="update">
       <div @click="update">
         <input type="checkbox" @change="update" v-model="isChecked" >
@@ -31,9 +31,10 @@ export default {
 <style scoped lang="scss">
 
 p#label{
-  color: #ff9800 ;
+  color: black ;
   margin: 0 0 0 10px;
   padding: 0;
+  background-color: white;
 }
 
 #item{
@@ -46,9 +47,15 @@ p#label{
 
 #item:hover{
   p{
-    color: white !important;
+    color: black !important;
   }
-  background-color: #ff9800;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 0;
+}
+
+#itemLi{
+  width: 10%;
 }
 
 </style>
