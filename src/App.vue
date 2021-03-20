@@ -1,6 +1,10 @@
+<!-- Ce composant est le composant principale  -->
+
 <template>
   <div id="app">
+<!--  Affichage du header-->
     <Header></Header>
+<!--  Le composant router-view contient le composant à afficher via les routes -->
     <router-view id="rView"/>
   </div>
 </template>

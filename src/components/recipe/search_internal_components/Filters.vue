@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import OptionCheckBox from "@/components/filter/OptionCheckBox";
+import OptionCheckBox from "@/components/recipe/filter/OptionCheckBox";
 
 export default {
   name: "Filters",

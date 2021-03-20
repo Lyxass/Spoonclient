@@ -10,7 +10,7 @@
 </template>
 <script>
 
-import CheckBoxEntry from "@/components/filter/filterEntry/CheckBoxEntry";
+import CheckBoxEntry from "@/components/recipe/filter/filterEntry/CheckBoxEntry";
 
 export default {
   name: "OptionCheckBox",
@@ -20,7 +20,7 @@ export default {
       bindStore: []
     }
   },
-  mounted() {
+  mounted() { // Permet de lié les boutons
     document.querySelectorAll(".toChange").forEach(element => {
       if (element.dataset.target !== undefined) {
         if (!(element.dataset.target.indexOf("#") >= 0)) {
