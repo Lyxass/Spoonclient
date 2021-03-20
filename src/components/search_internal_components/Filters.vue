@@ -3,7 +3,7 @@
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item filter first centerA" role="presentation">
         <a class="nav-link active navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
-           aria-controls="intolerencesFilter" aria-selected="true" @click="fixBootstrap">Intolerences</a>
+           aria-controls="intolerencesFilter" aria-selected="true">Intolerences</a>
       </li>
       <li class="nav-item filter centerA navA" role="presentation">
         <a class="nav-link" id="cuisines" data-toggle="pill" href="#cuisinesFilter" role="tab"
@@ -18,6 +18,7 @@
            aria-selected="false">Diets</a>
       </li>
     </ul>
+
     <div class="tab-content" id="pills-tabContent">
       <OptionCheckBox :options="intolerances" :bind-selected="this.$store.state.filters.intolerances"
                       id="intolerencesFilter"></OptionCheckBox>
@@ -50,13 +51,13 @@ export default {
     }
   },
   methods: {
-    fixBootstrap(event) {
-      if (event.target.classList.contains("active")){
-        event.target.classList.remove("active")
-        console.log("remove active")
-      }
-
-    }
+    // fixBootstrap(event) {
+    //   if (event.target.classList.contains("active")){
+    //     event.target.classList.remove("active")
+    //     console.log("remove active")
+    //   }
+    //
+    // }
   }
 }
 </script>
@@ -77,6 +78,7 @@ export default {
   display: flex !important;
   flex-direction: row !important;
 }
+
 
 #pills-tabContent > * {
   width: 100%;
@@ -119,7 +121,13 @@ a.active {
   justify-content: center;
   flex-direction: row;
   align-items: center;
-
+}
+.nav-link {
+  padding: 5%;
+  width: 100%;
+  text-align: center;
+  text-decoration: none !important;
+  color: black !important;
 }
 
 </style>

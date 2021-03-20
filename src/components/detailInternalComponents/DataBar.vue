@@ -66,7 +66,7 @@ export default {
 
 #title {
   margin: 0 1% 0 0;
-
+  color: black;
 }
 
 
@@ -84,6 +84,7 @@ p {
   justify-content: left;
   flex-direction: row;
   align-items: center;
-  //margin-top: 1%;
+  width: 90%;
+  margin-left: 5%;
 }
-</style>s
+</style>

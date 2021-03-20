@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    api: "1b4f50bd8bec4a209e854fcfdd201c82",
+    api:"16aa1b556b2943c785358b0311aa1043",
+    //api: "1b4f50bd8bec4a209e854fcfdd201c82",
     lastResult: {},
     filters: {
       intolerances: [],

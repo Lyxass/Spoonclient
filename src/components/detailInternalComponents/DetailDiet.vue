@@ -1,28 +1,86 @@
 <template>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item orange">Vegetarian : {{details.vegetarian}}</li>
-    <li class="list-group-item white">Vegan : {{details.vegan}}</li>
-    <li class="list-group-item orange">Gluten free : {{details.glutenFree}}</li>
-    <li class="list-group-item white">Diary free : {{details.dairyFree}}</li>
-  </ul>
+  <div class="container">
+    <!--    <li class="list-group-item ">Vegetarian : <img src=""></li>-->
+    <!--    <li class="list-group-item ">Vegan : {{details.vegan}}</li>-->
+    <!--    <li class="list-group-item ">Gluten free : {{details.glutenFree}}</li>-->
+    <!--    <li class="list-group-item ">Diary free : {{details.dairyFree}}</li>-->
+    <img :class="{no: !details.vegetarian}"
+         src="../../../public/images/végé.png"
+         :alt="vegetarian">
+    <img :class="{no: !details.vegan}"
+         src="../../../public/images/vegan.png"
+         :alt="vegan">
+    <img :class="{no: !details.glutenFree}"
+         src="../../../public/images/gluten.png"
+         :alt="glutenFree">
+    <img :class="{no: !details.dairyFree}"
+         src="../../../public/images/dairy.jpg"
+         :alt="dairyFree">
+  </div>
+
+
 </template>
 
 <script>
 export default {
   name: "DetailDiet",
-  props: ["details"]
+  props: ["details"],
+  computed:{
+    vegetarian(){
+      if(this.details.vegetarian){
+        return "Vegetarian"
+      }
+      else{
+        return "Not Vegetarian"
+      }
+    },
+    vegan(){
+      if(this.details.vegan){
+        return "Vegan"
+      }
+      else{
+        return "Not Vegan"
+      }
+    },
+    glutenFree(){
+      if(this.details.glutenFree){
+        return "Gluten Free"
+      }
+      else{
+        return "Not Gluten Free"
+      }
+    },
+    dairyFree(){
+      if(this.details.dairyFree){
+        return "Dairy Free"
+      }
+      else{
+        return "Not Dairy Free"
+      }
+    }
+
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.orange{
-  color: white;
-  //background-color: #ff9800;
-  background: linear-gradient(0.25turn,#ff9800, #f44336);
+
+.no{
+  filter: grayscale(100%)
 }
 
-.white{
-  color: #ff9800;
-  //background-color: #ff9800;
+.container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
 }
+
+img {
+  width: 10%;
+  height: auto;
+  margin: 6%;
+  color: green;
+}
+
+
 </style>
