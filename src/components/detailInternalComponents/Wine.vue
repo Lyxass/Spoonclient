@@ -21,18 +21,17 @@ export default {
 
 <style scoped lang="scss">
 h3{
-  background-color: #ff9800;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
+  border: 5px black solid;
   cursor: pointer;
 }
 
 h3:hover{
-  color: #ff9800;
-  background-color: white;
-  border: 1px solid #ff9800;
+  color: white;
+  background-color: black;
 }
 
 #img{

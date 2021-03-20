@@ -2,7 +2,7 @@
   <div id="filtersContainer">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item filter first centerA" role="presentation">
-        <a class="nav-link active navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
+        <a class="nav-link navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
            aria-controls="intolerencesFilter" aria-selected="true">Intolerences</a>
       </li>
       <li class="nav-item filter centerA navA" role="presentation">

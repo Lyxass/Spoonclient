@@ -60,6 +60,11 @@ p#label{
   border: none;
   margin: 10px;
   overflow: visible;
+  cursor: pointer;
+}
+
+input{
+  cursor: pointer;
 }
 
 </style>

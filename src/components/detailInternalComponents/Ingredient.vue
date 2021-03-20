@@ -24,11 +24,11 @@ export default {
 
 <style scoped>
   h3{
-    background-color: #ff9800;
-    color: white;
+    background-color: white;
+    color: black;
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
+    border: 5px black solid;
   }
 
   #img{

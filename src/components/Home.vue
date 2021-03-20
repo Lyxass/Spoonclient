@@ -52,7 +52,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 900px;
+  width: 1000px;
   height: 250px;
 }
 
