@@ -1,10 +1,10 @@
 <template>
   <li class="list-group-item" id="itemLi" @click="update">
-    <div id="item" @click="update">
-      <div @click="update">
-        <input type="checkbox" @change="update" v-model="isChecked" >
+    <div id="item" >
+      <div >
+        <input type="checkbox" v-model="isChecked" >
       </div>
-      <p id="label" @click="update">{{ name }}</p>
+      <p id="label" >{{ name }}</p>
     </div>
   </li>
 </template>
@@ -24,6 +24,9 @@ export default {
       this.isChecked = !this.isChecked;
       this.$emit("changed", {name: this.name, isChecked: this.isChecked})
     }
+  },
+  beforeMount() {
+    document.querySelector("#itemLi")
   }
 }
 </script>

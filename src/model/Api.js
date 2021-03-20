@@ -15,7 +15,9 @@ export async function receipeQuery(apiKey, input, filters,offset) {
     }
     Object.keys(filters).forEach((element) => {
         if (filters[element].length > 0 && filters[element].indexOf("None") < 0 && filters[element] !== "") {
+            console.log(element," : ",filters[element])
             query += "&" + element + "=" + filters[element]
+            console.log("query: ", query)
         }
     })
 

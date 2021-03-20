@@ -24,6 +24,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    updateFilter(state, payload){
+      state.filters[payload.name] = payload.value
+    }
   },
   actions: {
   },

@@ -17,7 +17,7 @@ export default {
   props: ["options", "bindSelected", "id"],
   data: function () {
     return {
-      bindStore: this.bindSelected
+      bindStore: []
     }
   },
   mounted() {
@@ -47,6 +47,8 @@ export default {
           return ele !== payload.name;
         });
       }
+      this.$store.commit('updateFilter',{name:this.bindSelected, value: this.bindStore})
+      console.log("checked",this.$store.state.filters[this.bindSelected])
       //this.$store.state.filters.intolerances = this.selected;
     }
   },

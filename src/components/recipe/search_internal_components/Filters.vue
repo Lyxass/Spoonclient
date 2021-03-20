@@ -20,13 +20,13 @@
     </ul>
 
     <div class="tab-content" id="pills-tabContent">
-      <OptionCheckBox :options="intolerances" :bind-selected="this.$store.state.filters.intolerances"
+      <OptionCheckBox :options="intolerances" bind-selected="intolerances"
                       id="intolerencesFilter"></OptionCheckBox>
-      <OptionCheckBox :options="cuisines" :bind-selected="this.$store.state.filters.cuisines"
+      <OptionCheckBox :options="cuisines" bind-selected="cuisines"
                       id="cuisinesFilter"></OptionCheckBox>
-      <OptionCheckBox :options="cuisines" :bind-selected="this.$store.state.filters.excludeCuisine"
+      <OptionCheckBox :options="cuisines" bind-selected="excludeCuisine"
                       id="excludeCuisinesFilter"></OptionCheckBox>
-      <OptionCheckBox :options="diets" :bind-selected="this.$store.state.filters.diet"
+      <OptionCheckBox :options="diets" bind-selected="diet"
                       id="dietsFilter"></OptionCheckBox>
     </div>
   </div>
