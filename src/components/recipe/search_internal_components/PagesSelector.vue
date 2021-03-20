@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Page from "@/components/search_internal_components/Page";
+import Page from "@/components/recipe/search_internal_components/Page";
 
 export default {
   name: "PagesSelector",

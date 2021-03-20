@@ -1,24 +1,30 @@
-# spoonclient
+# SpoonClient
+###Par Lucas Gazeau et Lylian Siffre
 
-## Project setup
-```
+## Installation du projet :
+
+Il faut installer le projet, pour cela rendez-vous dans la racine du projet et lancer la commande 
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+## Lancer le projet 
+
+Pour lancer le projet, vous pouvez exécuter la commande suivante : 
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+## Build le projet :
+
+Vous devez renseigner la clé d'api dans le fichier suivant : src/store/index.js.
+Une fois réalisé, vous devez éditer le fichier à la racine nommé vue.config.js et y insérer l'URL où vous stockerez le projet compilé.
+Vous pouvez modifier la commande deploy dans package.json pour quelle copie automatiquement le build dans le répertoire souhaité
+
+Pour compiler sans la copie : 
+```bash
 npm run build
 ```
+Cela va créer un dossier dist contenant le projet compilé.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Documentation Vue Cli: https://cli.vuejs.org/config/

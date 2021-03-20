@@ -6,10 +6,6 @@ const RECIPE_RANDOM_URL = "https://api.spoonacular.com/recipes/random?number=1"
 
 
 export async function receipeQuery(apiKey, input, filters,offset) {
-    if (input.indexOf("&") >= 0 || input.indexOf("=") >= 0) {
-        _reject("Invalid Input : Illegal Character (&, =)")
-    }
-    //check for &
     let query = "query=" + input + "&number=20";
     if(offset !== undefined){
         query += "&offset=" + offset;
@@ -68,12 +64,6 @@ function queryApi(url){
             .catch(res => {
                 reject(res);
             })
-    })
-}
-
-function _reject(reason){
-    return new Promise((resolve, reject) => {
-        reject(reason);
     })
 }
 

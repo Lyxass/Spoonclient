@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import ResultCard from "@/components/search_internal_components/ResultCard";
-import PagesSelector from "@/components/search_internal_components/PagesSelector";
+import ResultCard from "@/components/recipe/search_internal_components/ResultCard";
+import PagesSelector from "@/components/recipe/search_internal_components/PagesSelector";
 export default {
   name: "ResultContainer",
   components: {PagesSelector, ResultCard},

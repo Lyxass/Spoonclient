@@ -80,10 +80,10 @@
 <script>
 import {queryReceipeById} from "@/model/Api";
 
-import DataBar from "@/components/detailInternalComponents/DataBar";
-import DetailDiet from "@/components/detailInternalComponents/DetailDiet";
-import Ingredients from "@/components/detailInternalComponents/Ingredients";
-import Wines from "@/components/detailInternalComponents/Wines";
+import DataBar from "@/components/detail/components/DataBar";
+import DetailDiet from "@/components/detail/components/DetailDiet";
+import Ingredients from "@/components/detail/components/Ingredients";
+import Wines from "@/components/detail/components/Wines";
 
 export default {
   name: "Detail",

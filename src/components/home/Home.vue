@@ -23,10 +23,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("../../public/images/background.jpg");
+  background-image: url("../../assets/background.jpg");
   background-repeat: round;
-  //background-image: url("../../public/traiteur.jpg");
-  //background-repeat: round;
 }
 
 #title {

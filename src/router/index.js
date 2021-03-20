@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Receipe from "@/components/Recipe";
-import Home from "@/components/Home";
-import Detail from "@/components/Detail";
-import Error from "@/components/Error";
-import Random from "@/components/Random";
+import Receipe from "@/components/recipe/Recipe";
+import Home from "@/components/home/Home";
+import Detail from "@/components/detail/Detail";
+import Error from "@/components/error/Error";
+import Random from "@/components/random/Random";
 Vue.use(VueRouter)
 
 const routes = [

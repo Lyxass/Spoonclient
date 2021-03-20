@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Search from "@/components/search_internal_components/Search";
-import Filters from "@/components/search_internal_components/Filters";
-import ResultContainer from "@/components/search_internal_components/ResultContainer";
+import Search from "@/components/recipe/search_internal_components/Search";
+import Filters from "@/components/recipe/search_internal_components/Filters";
+import ResultContainer from "@/components/recipe/search_internal_components/ResultContainer";
 import {receipeQuery, loadReceipePage} from "@/model/Api"
 
 export default {
