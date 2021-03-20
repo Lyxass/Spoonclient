@@ -45,17 +45,21 @@ p#label{
   border-radius: 10px;
 }
 
-#item:hover{
+#itemLi:hover{
   p{
     color: black !important;
   }
   background-color: white;
   border: 2px black solid;
   border-radius: 0;
+  box-sizing: border-box;
 }
 
 #itemLi{
   width: 10%;
+  border: none;
+  margin: 10px;
+  overflow: visible;
 }
 
 </style>

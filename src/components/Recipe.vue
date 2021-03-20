@@ -6,10 +6,8 @@
     <Search @submit="searchFromApi"></Search>
     <Filters></Filters>
     <div id="content">
-      <!--<div id="result">-->
         <ResultContainer v-bind:result="res" :number-answers="numberAnswers" :number-per-page="resultPerPage"
                          :current-search="currentSearch" @onPageMustChange="loadPage"></ResultContainer>
-      <!--</div>-->
     </div>
   </div>
 </template>
@@ -101,6 +99,7 @@ export default {
   overflow-y: scroll;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 10px ;
 }
 
 #result {
