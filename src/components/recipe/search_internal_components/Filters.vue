@@ -1,5 +1,9 @@
+<!-- Composant qui gère les filtres de recherche-->
+
 <template>
   <div id="filtersContainer">
+
+    <!--   Collapse qui permet d'afficher les filtres-->
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item filter first centerA" role="presentation">
         <a class="nav-link navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
@@ -19,6 +23,7 @@
       </li>
     </ul>
 
+<!--    Contenu des collapses-->
     <div class="tab-content" id="pills-tabContent">
       <OptionCheckBox :options="intolerances" bind-selected="intolerances"
                       id="intolerencesFilter"></OptionCheckBox>
@@ -40,7 +45,7 @@ export default {
   name: "Filters",
   components: {OptionCheckBox},
   data() {
-    return {
+    return { // Labels des filtres
       intolerances: ["Dairy", "Egg", "Gluten", "Grain", "Peanut", "Seafood", "Sesame", "Shellfish", "Soy", "Sulfite",
         "Tree Nut", "Wheat"],
       cuisines: ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern European", "European",
@@ -50,15 +55,6 @@ export default {
         "Paleo", "Primal", "Whole30"]
     }
   },
-  methods: {
-    // fixBootstrap(event) {
-    //   if (event.target.classList.contains("active")){
-    //     event.target.classList.remove("active")
-    //     console.log("remove active")
-    //   }
-    //
-    // }
-  }
 }
 </script>
 
@@ -122,6 +118,7 @@ a.active {
   flex-direction: row;
   align-items: center;
 }
+
 .nav-link {
   padding: 5%;
   width: 100%;

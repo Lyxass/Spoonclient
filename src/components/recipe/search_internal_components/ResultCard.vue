@@ -1,3 +1,5 @@
+<!-- Carte d'une recette -->
+
 <template>
   <div class="card mb-1 ml-1" style="width: 18rem;" id="cardContainer">
     <img :src="detail.image" class="card-img-top" alt="No Image">
@@ -13,7 +15,7 @@ export default {
   name: "ResultCard",
   props: ["detail"],
   methods: {
-    onClick() {
+    onClick() { // Renvoie vers la page de détail d'une recette
       this.$router.push("/detail/" + this.detail.id);
     }
   }

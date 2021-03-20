@@ -1,3 +1,5 @@
+<!-- Composant générique qui permet de faire des filtres -->
+
 <template>
   <div class="tab-pane fade show filterContainer" :id="id" role="tabpanel" aria-labelledby="pills-home-tab">
     <div class="md-layout md-gutter" id="checkBoxContainer">
@@ -14,13 +16,13 @@ import CheckBoxEntry from "@/components/recipe/filter/filterEntry/CheckBoxEntry"
 
 export default {
   name: "OptionCheckBox",
-  props: ["options", "bindSelected", "id"],
+  props: ["options", "bindSelected", "id"], // option : tableau des différents label des checkbox, bindSelected : le nom de la variable ou mettre la selection dans le store
   data: function () {
     return {
       bindStore: []
     }
   },
-  mounted() { // Permet de lié les boutons
+  mounted() { // Permet de lier les collapse et leurs contenu (fix d'un bug de bootstrap)
     document.querySelectorAll(".toChange").forEach(element => {
       if (element.dataset.target !== undefined) {
         if (!(element.dataset.target.indexOf("#") >= 0)) {
@@ -39,7 +41,7 @@ export default {
 
   },
   methods: {
-    onUpdate(payload) {
+    onUpdate(payload) { // Met à jour la sélection
       if (payload.isChecked) {
         this.bindStore.push(payload.name);
       } else {
@@ -48,8 +50,6 @@ export default {
         });
       }
       this.$store.commit('updateFilter',{name:this.bindSelected, value: this.bindStore})
-      console.log("checked",this.$store.state.filters[this.bindSelected])
-      //this.$store.state.filters.intolerances = this.selected;
     }
   },
   components: {CheckBoxEntry},

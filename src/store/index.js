@@ -3,12 +3,15 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+//Le store va permettre
+
 export default new Vuex.Store({
   state: {
+    //Merci de changer la clé d'API. Les points sont précieux pour le Gitlab pages ;)
     api:"16aa1b556b2943c785358b0311aa1043",
     //api: "1b4f50bd8bec4a209e854fcfdd201c82",
     lastResult: {},
-    filters: {
+    filters: { // contient la selection des différents filtres
       intolerances: [],
       cuisines: [],
       excludeCuisine:[],
@@ -24,7 +27,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    updateFilter(state, payload){
+    updateFilter(state, payload){ // met à jours les filtres séléctionnés
       state.filters[payload.name] = payload.value
     }
   },

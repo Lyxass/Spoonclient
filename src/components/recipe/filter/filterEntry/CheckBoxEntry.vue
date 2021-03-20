@@ -1,7 +1,9 @@
+<!-- Composant représentant une entrée (checkbox+label) dans OptionCheckBox -->
+
 <template>
   <li class="list-group-item" id="itemLi" @click="update">
     <div id="item" >
-      <div >
+      <div>
         <input type="checkbox" v-model="isChecked" >
       </div>
       <p id="label" >{{ name }}</p>
@@ -19,15 +21,11 @@ export default {
     }
   },
   methods: {
-    update() {
-      console.log("clicked",this.isChecked)
+    update() { // Met à jour la variable isCheck et émet un évènement au parent pour mettre à jour la selection dans le store
       this.isChecked = !this.isChecked;
       this.$emit("changed", {name: this.name, isChecked: this.isChecked})
     }
   },
-  beforeMount() {
-    document.querySelector("#itemLi")
-  }
 }
 </script>
 

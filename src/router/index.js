@@ -9,26 +9,26 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/', // Route par défaut.
     name: 'Home',
     component: Home
   },
   {
-    path: '/recipe',
+    path: '/recipe', // Route vers la ercherche de recette
     name: 'receipe_search',
     component: Receipe
   },
   {
-    path: '/detail/:id',
+    path: '/detail/:id', // Route vers le détail d'une recette en passant l'id de la recette dans la route
     component: Detail,
     props: true
   },
   {
-    path: '/random',
+    path: '/random', // Sélectionne une route de manière aléatoire
     component: Random
   },
   {
-    path: "*",
+    path: "*", // Route qui gère les erreurs (ne fonctionne pas avec apache)
     component: Error,
   }
 

@@ -1,3 +1,5 @@
+<!-- Carte d'un Vin -->
+
 <template>
   <div class="card mb-1 ml-1" style="width: 18rem;" id="wineContainer">
     <img :src="detail.imageUrl" class="card-img-top" id="img" alt="...">
@@ -12,7 +14,7 @@ export default {
   name: "Wine",
   props: ["detail"],
   methods:{
-    redirect(){
+    redirect(){ // redirige vers la page d'achat d'un vin
       window.location.href = this.detail.link;
     }
   }

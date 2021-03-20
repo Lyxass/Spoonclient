@@ -1,3 +1,5 @@
+<!-- Conteneur des cartes des vins -->
+
 <template>
   <div v-if="this.wines !== undefined && this.wines.length > 0" id="resultContainer" class="d-flex justify-content-center flex-wrap ">
     <Wine v-for="wine in this.wines" :key="wine.id" v-bind:detail="wine"></Wine>

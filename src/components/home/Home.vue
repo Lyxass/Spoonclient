@@ -1,3 +1,5 @@
+<!-- Page principale du site. Inutile mais jolie ;) -->
+
 <template>
   <div>
     <div id="home">

@@ -1,8 +1,10 @@
+<!-- Le header de la page, permet la naviguation grâce au routeur-->
+
 <template>
   <div id="nav">
     <h1 id="title"> SpoonClient </h1>
     <div id="routeurContainer">
-      <router-link to="/">Home</router-link>
+      <router-link to="/">Home</router-link> // Bouton qui redirige grâce au routeur
       <router-link to="/recipe">Recipe</router-link>
       <router-link to="/random">Random</router-link>
     </div>

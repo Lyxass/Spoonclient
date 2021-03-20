@@ -1,27 +1,19 @@
+<!-- Vue qui affiche les détails d'une recette -->
+
 <template>
   <div>
     <div id="spinnerContainer" v-if="isLoading">
       <md-progress-spinner id="spinner" class="md-accent" md-mode="indeterminate"></md-progress-spinner>
     </div>
 
+
+<!--  Titre, image, description-->
     <div v-else id="container">
-      <!--      <div  id="mainDetailContainer" v-bind:style="{ 'background-image': 'url(' + details.image + ')' }">-->
-      <!--        <img :src="details.image" :alt="details.title" id="detailImage">&ndash;&gt;-->
-      <!--      <div id="shortDetails" v-bind:style="{ 'background-image': 'url(' + details.image + ')' }">-->
-      <!--        <h1 id="title">{{ details.title }}</h1>-->
-      <!--        <p id="id">#{{ id }}</p>-->
-      <!--        <div v-html="details.summary" id="summary"></div>-->
-      <!--      </div>-->
-
-
       <md-card id="shortDetails">
         <md-card-media-cover md-text-scrim>
           <md-card-media md-ratio="16:9">
-            <!--            <img src="https://miro.medium.com/max/11006/0*-8Xy9dTrLV26-Ugu" alt="Skyscraper">-->
             <img :src="details.image" :alt="details.title">
-
           </md-card-media>
-
           <md-card-area id="imageFooter">
             <div class="titleContainer">
             <h1 class="title">{{ details.title }}</h1>
@@ -33,6 +25,7 @@
         </md-card-media-cover>
       </md-card>
 
+<!--   Collapse pour les différentes informations   -->
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item filter first centerA" role="presentation">
           <a class="nav-link active navA" id="diet-tab" data-toggle="pill" href="#diet" role="tab"
@@ -52,6 +45,7 @@
         </li>
       </ul>
 
+      <!--   Ce qui sera affiché par les collapses   -->
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="diet" role="tabpanel" aria-labelledby="home-tab">
           <DetailDiet :details="details"></DetailDiet>
@@ -95,14 +89,12 @@ export default {
       isLoading: false
     }
   },
-  beforeMount() {
-    console.log("id", this.id)
+  beforeMount() { // Récupération des données sur la recette avant l'affichage du composant
     this.isLoading = true;
     queryReceipeById(this.$store.state.api, this.id).then(res => {
       this.details = res;
       this.isLoading = false
     });
-    console.log("Details", this.details)
   }
 }
 </script>
@@ -148,20 +140,6 @@ export default {
 #shortDetails {
   width: 80%;
   height: auto;
-}
-
-.orangeNoGradient {
-  color: white !important;
-  background-color: #ff9800;
-}
-
-.orange {
-  color: white;
-  background: linear-gradient(0.25turn, #ff9800, #f44336);
-}
-
-.white {
-  color: #ff9800;
 }
 
 .active {

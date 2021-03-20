@@ -1,9 +1,7 @@
+<!--Affiche les données lié au régime compatible avec la recette-->
+
 <template>
   <div class="container">
-    <!--    <li class="list-group-item ">Vegetarian : <img src=""></li>-->
-    <!--    <li class="list-group-item ">Vegan : {{details.vegan}}</li>-->
-    <!--    <li class="list-group-item ">Gluten free : {{details.glutenFree}}</li>-->
-    <!--    <li class="list-group-item ">Diary free : {{details.dairyFree}}</li>-->
     <img :class="{no: !details.vegetarian}"
          src="@/assets/végé.png"
          :alt="vegetarian">
@@ -26,7 +24,7 @@ export default {
   name: "DetailDiet",
   props: ["details"],
   computed:{
-    vegetarian(){
+    vegetarian(){ // Les textes à afficher si les images ne fonctionnent pas
       if(this.details.vegetarian){
         return "Vegetarian"
       }

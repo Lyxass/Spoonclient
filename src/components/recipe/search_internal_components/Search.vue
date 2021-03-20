@@ -1,12 +1,12 @@
-<template>
+<!-- Composant de la barre de recherche (soit Auto-complétion) -->
 
+<template>
   <div id="searchContainer">
     <md-autocomplete id="searchBar" v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">
       <label>Enter something here</label>
     </md-autocomplete>
     <md-button class="md-primary" id="search" @click="onSelect"> Search</md-button>
   </div>
-
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
   },
   methods:
       {
-        getAutoComplete() {
+        getAutoComplete() { // Récupère les resultats possibles
           console.log("new input",this.input)
           recipeAutoComplete(this.input,this.$store.state.api).then(res=>{
               if(res !== [] && res.length > 0){
@@ -35,7 +35,7 @@ export default {
               }
           }) }
         ,
-        onSelect(){
+        onSelect(){ // Gère quand on clique sur une proposition
           this.$emit("submit",this.input)
         }
       }

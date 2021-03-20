@@ -1,3 +1,7 @@
+<!--Composant contenant les pages disponibles (bouton pour y accéder)
+    La changement effectif de la page ce fait dans Recipe
+-->
+
 <template>
   <nav aria-label="..." id="navPage">
     <ul class="pagination" id="ulPage">
@@ -45,16 +49,15 @@ export default {
     }
   },
   methods: {
-    updateCurrentPage(nb) {
+    updateCurrentPage(nb) { //Met à jour la page courrante
       this.selected[this.currentPage] = false;
       this.currentPage = nb;
     },
-    onPageClick(nb) {
+    onPageClick(nb) { // Émets un évènement géré par le parent pour change la page
       this.updateCurrentPage(nb);
-      console.log("selected : ", this.selected)
       this.$emit("onPageMustChange", nb)
     },
-    onNext() {
+    onNext() { // Passe à la page suivante
       if (this.currentPage < this.numberOfPages) {
         this.updateCurrentPage(this.currentPage + 1);
         console.log("currentPage", this.currentPage)
@@ -62,7 +65,7 @@ export default {
         this.$emit("onPageMustChange", this.currentPage)
       }
     },
-    onPrev() {
+    onPrev() { // Passe à la page précedante
       if (this.currentPage > 1) {
         this.updateCurrentPage(this.currentPage - 1);
         console.log("currentPage", this.currentPage)

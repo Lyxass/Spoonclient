@@ -1,3 +1,5 @@
+<!--Affichage d'une bar de progression en fonction d'une valeur (utilisé pour le HealthScore)-->
+
 <template>
   <li id="healthContainer" class="list-group-item">
     <p id="title">{{title}}</p>
@@ -34,7 +36,7 @@ export default {
   props: ["percentage", "invert","title"],
   data() {
     return {
-      colorClasses: {
+      colorClasses: { // Utilisé pour les styles conditionnels
         'bg-danger': this.percentage <= 25,
         'bg-warning': this.percentage <= 50,
         'bg-info': this.percentage <= 75,

@@ -1,3 +1,7 @@
+<!-- Composant représentant un bouton dans la pagination
+     La changement effectif de la page ce fait dans Recipe
+-->
+
 <template>
   <li class="page-item text-dark" :class="{'active' : selected}" @click="onCLick">
     <a class="page-link"  href="#">
@@ -12,7 +16,7 @@ export default {
   name: "Page",
   props: ["number", "selected"],
   methods: {
-    onCLick(){
+    onCLick(){ // Émets un évènement géré par le parent pour change la page
       this.$emit("click",this.number)
     }
   }

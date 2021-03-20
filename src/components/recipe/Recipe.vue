@@ -1,3 +1,5 @@
+<!-- Page de recherche de recette-->
+
 <template>
   <div>
     <div id="spinnerContainer" v-if="isLoading">
@@ -33,14 +35,13 @@ export default {
   computed: {},
   methods:
       {
-        searchFromApi(input) {
+        searchFromApi(input) { // Lance la recherche de la recette
           this.isLoading = true;
           receipeQuery(this.$store.state.api, input, this.$store.state.filters).then((res) => {
-            console.log("res", res);
             this.res = res;
             this.isLoading = false
-            this.currentSearch = res.currentSearch;
-            this.numberAnswers = res.totalResults;
+            this.currentSearch = res.currentSearch; // Enregistre la requête courante
+            this.numberAnswers = res.totalResults; // Enregistre le nombre de résultat
           })
               .catch((res) => {
                 this.res = res
@@ -49,13 +50,13 @@ export default {
 
               })
         },
-        loadPage(nb) {
+        loadPage(nb) { // Charge la page numéro : nb
           if (this.currentSearch !== "") {
             loadReceipePage(this.currentSearch, (nb - 1) * this.resultPerPage).then(res => {
               this.res = res;
               this.isLoading = false
-              this.currentSearch = res.currentSearch;
-              this.numberAnswers = res.totalResults;
+              this.currentSearch = res.currentSearch; // Enregistre la requête courante
+              this.numberAnswers = res.totalResults; // Enregistre le nombre de résultat
             })
                 .catch((res) => {
                   this.res = res

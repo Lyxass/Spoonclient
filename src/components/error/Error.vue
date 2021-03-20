@@ -1,3 +1,6 @@
+<!-- Affiche une érreur si la route n'est pas bonne -->
+<!-- NE FONCTIONNE PAS AVEC LA VERSION BUILD DU PROJET (APACHE) -->
+
 <template>
   <div>
     <h1>Sorry, we could not find the page you requested :( . </h1>
