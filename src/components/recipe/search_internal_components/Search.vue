@@ -1,8 +1,7 @@
 <template>
 
   <div id="searchContainer">
-<!--    <md-autocomplete id="searchBar" v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">-->
-      <md-autocomplete id="searchBar" v-model="input" :md-options="autoComplete" @md-selected="onSelect">
+    <md-autocomplete id="searchBar" v-model="input" :md-options="autoComplete" @md-changed="getAutoComplete" @md-selected="onSelect">
       <label>Enter something here</label>
     </md-autocomplete>
     <md-button class="md-primary" id="search" @click="onSelect"> Search</md-button>

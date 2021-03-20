@@ -5,16 +5,16 @@
     <!--    <li class="list-group-item ">Gluten free : {{details.glutenFree}}</li>-->
     <!--    <li class="list-group-item ">Diary free : {{details.dairyFree}}</li>-->
     <img :class="{no: !details.vegetarian}"
-         src="../../../public/images/végé.png"
+         src="public/images/végé.png"
          :alt="vegetarian">
     <img :class="{no: !details.vegan}"
-         src="../../../public/images/vegan.png"
+         src="public/images/vegan.png"
          :alt="vegan">
     <img :class="{no: !details.glutenFree}"
-         src="../../../public/images/gluten.png"
+         src="public/images/gluten.png"
          :alt="glutenFree">
     <img :class="{no: !details.dairyFree}"
-         src="../../../public/images/dairy.jpg"
+         src="public/images/dairy.jpg"
          :alt="dairyFree">
   </div>
 

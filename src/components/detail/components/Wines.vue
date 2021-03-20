@@ -3,17 +3,18 @@
     <Wine v-for="wine in this.wines" :key="wine.id" v-bind:detail="wine"></Wine>
   </div>
   <div v-else class="error">
-    <p v-html="noWineText"></p>
+    <p v-if="noWineText !== undefined && noWineText.length > 0" v-html="noWineText" class="error2"></p>
+    <p v-else class="error2"> There's no wine with this recipe </p>
   </div>
 </template>
 
 <script>
-import Wine from "@/components/detailInternalComponents/Wine";
+import Wine from "@/components/detail/components/Wine";
 
 export default {
   components: {Wine},
   name: "Wines",
-  props: ["wines", "noWineText"]
+  props: ["wines", "noWineText"],
 }
 </script>
 
@@ -31,6 +32,11 @@ export default {
   font-size: 100%;
   margin-top: 10px;
   margin-left: 10px;
+  color: black;
+}
+
+.error > .error2{
+  color: black !important;
 }
 
 #resultContainer{

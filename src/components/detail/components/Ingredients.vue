@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Ingredient from "@/components/detailInternalComponents/Ingredient";
+import Ingredient from "@/components/detail/components/Ingredient";
 export default {
   name: "Ingredients",
   components: {Ingredient},
