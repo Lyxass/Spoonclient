@@ -4,7 +4,8 @@
   <div id="nav">
     <h1 id="title"> SpoonClient </h1>
     <div id="routeurContainer">
-      <router-link to="/">Home</router-link> // Bouton qui redirige grâce au routeur
+<!--  // Bouton qui redirige grâce au routeur-->
+      <router-link to="/">Home</router-link>
       <router-link to="/recipe">Recipe</router-link>
       <router-link to="/random">Random</router-link>
     </div>
