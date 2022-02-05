@@ -2,7 +2,7 @@
 
 A basic client for the recipe API Spoonclient.
 
-This project was made as an VueJS exercice during my studies in Computer DUT.  
+This project was made as a VueJS exercise during my studies in computer sciences. It has been made in less than 2 weeks.
 
 ## Install the project :
 
@@ -15,21 +15,21 @@ You can install the project by using the following command
 ```bash
 npm install
 ```
+
+Before running the project, you must set the API key in the src/store/index.js file.
+
 To start the project, use the following command. 
 ```bash
 npm run serve
 ```
 
-## Build le projet :
+## Build the project :
 
-Vous devez renseigner la clé d'api dans le fichier suivant : src/store/index.js.
-Une fois réalisé, vous devez éditer le fichier à la racine nommé vue.config.js et y insérer l'URL où vous stockerez le projet compilé.
-Vous pouvez modifier la commande deploy dans package.json pour quelle copie automatiquement le build dans le répertoire souhaité
+You can build the project using the following command :
 
-Pour compiler sans la copie : 
 ```bash
 npm run build
 ```
-Cela va créer un dossier dist contenant le projet compilé.
+It will create a folder "dist" which will contain the compiled version.
 
 Documentation Vue Cli: https://cli.vuejs.org/config/
