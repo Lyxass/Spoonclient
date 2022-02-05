@@ -3,6 +3,7 @@
 <template>
   <div>
     <div id="home">
+      <img id="background" src="@/assets/background.jpg">
       <div id="titleContainer">
         <p id="title">SpoonClient</p>
         <p id="sub-title">The only website which will stop working after about 100 requests!</p>
@@ -18,6 +19,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+#background{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #home {
   width: 100%;
   height: 100%;
@@ -25,7 +33,6 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("../../assets/background.jpg");
   background-repeat: round;
 }
 
@@ -46,6 +53,7 @@ export default {
 }
 
 #titleContainer{
+  position: absolute;
   border: 10px white solid;
   background-color: rgba(0,0,0,0.3);
   display: flex;

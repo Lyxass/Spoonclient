@@ -93,13 +93,10 @@ export default {
 
 
 #content {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  overflow-y: scroll;
-  margin-left: 5%;
-  margin-right: 5%;
   margin-top: 10px ;
 }
 

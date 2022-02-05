@@ -30,7 +30,6 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -38,7 +37,7 @@ export default {
 }
 
 #rView{
-  height: 93%;
+  height: unquote("-webkit-calc(100% - 70px)");
   width: 100%;
 }
 </style>

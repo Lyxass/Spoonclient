@@ -140,6 +140,7 @@ export default {
 #shortDetails {
   width: 80%;
   height: auto;
+  max-width: 1500px;
 }
 
 .active {

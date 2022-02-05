@@ -1,16 +1,21 @@
 # SpoonClient
-###Par Lucas Gazeau et Lylian Siffre
 
-## Installation du projet :
+A basic client for the recipe API Spoonclient.
 
-Il faut installer le projet, pour cela rendez-vous dans la racine du projet et lancer la commande 
+This project was made as an VueJS exercice during my studies in Computer DUT.  
+
+## Install the project :
+
+To install the project, you have to clone this project. 
+
+**Warning** due to incompatibility of the node-sass package, this application should run using version **14.19.0 of nodeJS**.
+
+You can install the project by using the following command
+
 ```bash
 npm install
 ```
-
-## Lancer le projet 
-
-Pour lancer le projet, vous pouvez exécuter la commande suivante : 
+To start the project, use the following command. 
 ```bash
 npm run serve
 ```

@@ -12,7 +12,6 @@
       <p> Sorry, we did not find anything matching your criteria</p>
     </div>
     <PagesSelector v-if="currentSearch !== ''" :number-per-page="numberPerPage" :number-result="numberAnswers" @onPageMustChange="reEmit"></PagesSelector>
-
   </div>
 </template>
 
