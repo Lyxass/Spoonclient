@@ -2,28 +2,28 @@
 
 <template>
   <div id="filtersContainer">
-
     <!--   Collapse qui permet d'afficher les filtres-->
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item filter first centerA" role="presentation">
-        <a class="nav-link navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
-           aria-controls="intolerencesFilter" aria-selected="true">Intolerences</a>
-      </li>
-      <li class="nav-item filter centerA navA" role="presentation">
-        <a class="nav-link" id="cuisines" data-toggle="pill" href="#cuisinesFilter" role="tab"
-           aria-controls="cuisinesFilter" aria-selected="false">Cuisines</a>
-      </li>
-      <li class="nav-item filter centerA navA" role="presentation">
-        <a class="nav-link" id="excludeCuisines" data-toggle="pill" href="#excludeCuisinesFilter" role="tab"
-           aria-controls="excludeCuisinesFilter" aria-selected="false">Excludes Cuisines</a>
-      </li>
-      <li class="nav-item filter last centerA navA" role="presentation">
-        <a class="nav-link" id="diets" data-toggle="pill" href="#dietsFilter" role="tab" aria-controls="dietsFilter"
-           aria-selected="false">Diets</a>
-      </li>
-    </ul>
-
-<!--    Contenu des collapses-->
+    <div>
+      <ul class="nav" id="pills-tab" role="tablist">
+        <li class="nav-item filter first centerA" role="presentation">
+          <a class="nav-link navA" id="intolerences" data-toggle="pill" href="#intolerencesFilter" role="tab"
+            aria-controls="intolerencesFilter" aria-selected="true">Intolerences</a>
+        </li>
+        <li class="nav-item filter centerA navA" role="presentation">
+          <a class="nav-link" id="cuisines" data-toggle="pill" href="#cuisinesFilter" role="tab"
+            aria-controls="cuisinesFilter" aria-selected="false">Cuisines</a>
+        </li>
+        <li class="nav-item filter centerA navA" role="presentation">
+          <a class="nav-link" id="excludeCuisines" data-toggle="pill" href="#excludeCuisinesFilter" role="tab"
+            aria-controls="excludeCuisinesFilter" aria-selected="false">Excludes Cuisines</a>
+        </li>
+        <li class="nav-item filter last centerA navA" role="presentation">
+          <a class="nav-link" id="diets" data-toggle="pill" href="#dietsFilter" role="tab" aria-controls="dietsFilter"
+            aria-selected="false">Diets</a>
+        </li>
+      </ul>
+    </div>
+    <!--    Contenu des collapses-->
     <div class="tab-content" id="pills-tabContent">
       <OptionCheckBox :options="intolerances" bind-selected="intolerances"
                       id="intolerencesFilter"></OptionCheckBox>
@@ -64,10 +64,8 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  overflow-y: scroll;
   margin-left: 5%;
   margin-right: 5%;
-
 }
 
 #accord {
@@ -83,14 +81,6 @@ export default {
 
 .filter {
   width: 25%;
-}
-
-.nav-link {
-  padding: 5%;
-  width: 100%;
-  text-align: center;
-  text-decoration: none !important;
-  color: black !important;
 }
 
 a.active {
@@ -120,7 +110,6 @@ a.active {
 }
 
 .nav-link {
-  padding: 5%;
   width: 100%;
   text-align: center;
   text-decoration: none !important;

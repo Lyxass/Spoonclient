@@ -9,7 +9,7 @@
       <p> {{result}}</p>
     </div>
     <div v-else class="error">
-      <p> Sorry, we did not find anything matching your criteria</p>
+      <p id="errorTxt"> Sorry, we did not find anything matching your criteria</p>
     </div>
     <PagesSelector v-if="currentSearch !== ''" :number-per-page="numberPerPage" :number-result="numberAnswers" @onPageMustChange="reEmit"></PagesSelector>
   </div>
@@ -44,4 +44,7 @@ export default {
   font-size: 200%;
 }
 
+#errorTxt{
+  margin-top: 20px;
+  }
 </style>
