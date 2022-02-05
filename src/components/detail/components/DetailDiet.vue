@@ -28,35 +28,26 @@ export default {
       if(this.details.vegetarian){
         return "Vegetarian"
       }
-      else{
         return "Not Vegetarian"
-      }
     },
     vegan(){
       if(this.details.vegan){
         return "Vegan"
       }
-      else{
         return "Not Vegan"
-      }
     },
     glutenFree(){
       if(this.details.glutenFree){
         return "Gluten Free"
       }
-      else{
         return "Not Gluten Free"
-      }
     },
     dairyFree(){
       if(this.details.dairyFree){
         return "Dairy Free"
       }
-      else{
         return "Not Dairy Free"
-      }
     }
-
   }
 }
 </script>
